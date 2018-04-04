@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1170.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.PhysicalNewEntryController">
+   <children>
+      <BorderPane layoutX="195.0" layoutY="103.0" prefHeight="379.0" prefWidth="701.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="50.0" prefWidth="800.0" BorderPane.alignment="CENTER_LEFT">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" prefHeight="50.0" prefWidth="800.0" text="TDM库房管理 - 物理刀具入库" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
+         <bottom>
+            <AnchorPane prefHeight="500.0" prefWidth="1170.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView fx:id="compTable" focusTraversable="false" prefHeight="400.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="compIDColumn" minWidth="100.0" prefWidth="100.0" text="刀具ID" />
+                      <TableColumn fx:id="physicalIDColumn" minWidth="100.0" prefWidth="136.0" text="物理号" />
+                        <TableColumn fx:id="desc1Column" minWidth="82.0" prefWidth="152.0" text="刀具描述1" />
+                        <TableColumn fx:id="desc2Column" minWidth="100.0" prefWidth="172.0" text="刀具描述2" />
+                        <TableColumn fx:id="costunitColumn" minWidth="100.0" prefWidth="156.0" text="成本中心" />
+                        <TableColumn fx:id="workplaceColumn" minWidth="100.0" prefWidth="132.0" text="车间" />
+                        <TableColumn fx:id="stockplaceIDColumn" minWidth="100.0" prefWidth="166.0" text="库位" />
+                        <TableColumn fx:id="stockplaceDescColumn" minWidth="62.0" prefWidth="155.0" text="库位描述" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </bottom>
+         <center>
+            <VBox prefHeight="300.0" prefWidth="1169.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1170.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="24.0" prefWidth="124.0" text="选择库房：">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ComboBox fx:id="cribBox" focusTraversable="false" onAction="#loadStocks" prefHeight="40.0" prefWidth="300.0" promptText="请选择库房">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                        <Label alignment="CENTER" prefHeight="24.0" prefWidth="136.0" text="选择库位：">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ComboBox fx:id="stockBox" disable="true" prefHeight="40.0" prefWidth="300.0" promptText="请选择库位">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1170.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="24.0" prefWidth="152.0" text="扫描刀具：">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="inputTextField" alignment="CENTER" onKeyPressed="#pressKey" prefHeight="40.0" prefWidth="500.0" promptText="请先选中输入框开始扫码">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#delFromList" prefHeight="40.0" prefWidth="100.0" text="移除选中刀具">
+                           <HBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#issueConfirm" prefHeight="40.0" prefWidth="100.0" text="确认入库">
+                           <HBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="800.0" prefWidth="1170.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.RootLayoutController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="操作">
+               <items>
+                  <MenuItem fx:id="physicalItemManage" mnemonicParsing="false" onAction="#showPhysicalScanner" text="物理刀具领取" />
+                  <MenuItem fx:id="physicalNewEntry" mnemonicParsing="false" onAction="#showPhysicalNewEntry" text="物理刀具入库" />
+                  <MenuItem fx:id="userManage" mnemonicParsing="false" onAction="#userManagement" text="用户管理" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleExit" text="退出" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="帮助">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="关于" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Label alignment="TOP_CENTER" prefHeight="175.0" prefWidth="568.0" text="欢迎登陆TDM扫码库房软件！" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+   </center>
+</BorderPane>

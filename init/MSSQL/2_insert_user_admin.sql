@@ -1,0 +1,27 @@
+INSERT INTO [TMS].[TCS_USER]
+           ([TYPE]
+           ,[PINCODE]
+           ,[USERNAME]
+           ,[PASSWORD]
+           ,[TDMINITIALS]
+           ,[NAME]
+           ,[MOBILE]
+           ,[DEPARTMENT]
+           ,[WORK]
+           ,[EMAIL]
+           ,[INFO]
+           ,[INFO2])
+     VALUES
+           (0
+           ,12345678
+           ,N'admin'
+           ,N'admin'
+           ,N'SAD'
+           ,N'π‹¿Ì‘±'
+           ,N'-'
+           ,N'-'
+           ,N'-'
+           ,N'-'
+           ,N'-'
+           ,N'-')
+GO

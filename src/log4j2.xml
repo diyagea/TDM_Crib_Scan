@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration monitorInterval="1800">
+	<properties>
+		<property name="LOG_HOME">logs</property>
+	</properties>
+	
+	<appenders>
+	
+		<Console name="Console" target="SYSTEM_OUT">
+			<ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+		</Console>
+		
+        <RollingFile name="Error" fileName="${LOG_HOME}/tdm_crib_scanner.log" filePattern="${LOG_HOME}/$${date:yyyy-MM-dd }/app-%d{MM-dd-yyyy}-%i.log.gz" >
+            <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="10MB"/>
+            <Filters>
+				<ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+				<ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+			</Filters>
+        </RollingFile>
+        
+    </appenders>
+    <loggers>
+        <root level="debug">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="Error"/>
+        </root>
+    </loggers>
+</configuration>
